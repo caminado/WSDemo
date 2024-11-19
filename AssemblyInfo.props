@@ -1,0 +1,17 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project=".\Version.props" />
+    <PropertyGroup>
+        <Company>TTT</Company>
+        <Authors>$(Company)</Authors>
+        <Owners>$(Company)</Owners>
+        <Copyright>Copyright (c) TTT 2016-$([System.DateTime]::Now.ToString(yyyy))</Copyright>
+        <PackageId Condition="'$(PackageId)' == ''">$(AssemblyName)</PackageId>
+        <PackageIdPrefix Condition="'$(PackageIdPrefix)' == ''"></PackageIdPrefix>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RepositoryUrl>https://gitlab.ttt.ru/ttt/api-idsrv</RepositoryUrl>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(PackageIdPrefix)' != ''">
+        <PackageId>$(PackageIdPrefix).$(PackageId)</PackageId>
+    </PropertyGroup>
+</Project>
